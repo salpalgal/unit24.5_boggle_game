@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boggle Game</title>
+</head>
+<body>
+    <section>
+        <table id="board">
+           {% for row in board %}
+           <tr>
+            {% for cell in row %}
+            <td>{{cell}}</td>
+            {% endfor %}
+            </tr>
+           {% endfor %} 
+        </table>
+        <form id="guess-form">
+            <label for="guess">Guess :</label>
+           <input id="guess-input" type="text" name="guess" placeholder="enter guess"> 
+           <button id ="submit">submit</button>
+        </form>
+    </section>
+    
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="/static/game.js"></script>
+</body>
+</html>
