@@ -7,6 +7,15 @@
 </head>
 <body>
     <section>
+        <section id="keepScore">
+            <label for="played">Games played :</label>
+            <section id="played">{{played}}</section>
+            <label for="highscore">Highscore : </label>
+            <section id="highscore">{{highscore}}</section>
+            <label for="score">Score : </label>
+            <section id="score"></section>
+        </section>
+        
         <table id="board">
            {% for row in board %}
            <tr>
@@ -16,11 +25,12 @@
             </tr>
            {% endfor %} 
         </table>
-        <form id="guess-form">
-            <label for="guess">Guess :</label>
-           <input id="guess-input" type="text" name="guess" placeholder="enter guess"> 
+        <form id="guess-form" method ="POST">
+            <label >Guess :</label>
+           <input id="guess-input" type="text" name="word" placeholder="enter guess"> 
            <button id ="submit">submit</button>
         </form>
+        <p id="message"></p>
     </section>
     
     <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
