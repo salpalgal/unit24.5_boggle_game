@@ -24,7 +24,10 @@ def checking():
 
 @app.route("/post-score", methods=["POST"])
 def post_score():
-    points= request.json["points"]
+    data= request.get_json()
+    if not data:
+        return "Bad request", 400
+    points= data["points"]
     highscore = session.get("highscore",0)
     played= session.get("played",0)
     session["played"] = played+1
@@ -34,4 +37,4 @@ def post_score():
     else:
         return jsonify({"points": points})
 
-    # return jsonify(brokeRecord = score > highscore)
+ 
